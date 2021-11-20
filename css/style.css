@@ -1,0 +1,212 @@
+:root {
+  --text-color: hsla(0, 0%, 7%, 1);
+  --background-color: hsla(0, 0%, 100%, 1);
+  --icon-button-hover-background: hsla(0, 0%, 7%, 0.1);
+  --input-background: var(--background-color);
+  --input-border: hsla(0, 0%, 7%, 0.2);
+  --input-border-hover: hsla(0, 0%, 7%, 0.4);
+  --input-border-focus: hsla(0, 0%, 7%, 1);
+  --footer-color: hsla(0, 0%, 7%, 0.2);
+  --checkbox-background: var(--text-color);
+
+  @media (prefers-color-scheme: dark) {
+    --text-color: hsla(0, 0%, 97%, 1);
+    --background-color: hsla(0, 0%, 10%, 1);
+    --icon-button-hover-background: hsla(0, 0%, 97%, 0.2);
+    --input-background: hsla(0, 0%, 0%, 1);
+    --input-border: hsla(0, 0%, 97%, 0.2);
+    --input-border-hover: hsla(0, 0%, 97%, 0.4);
+    --input-border-focus: hsla(0, 0%, 97%, 1);
+    --footer-color: hsla(0, 0%, 97%, 0.3);
+    --checkbox-background: unset;
+  }
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+.wrapper {
+  min-height: 100%;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+}
+
+.generated-password {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.regenerate-button {
+  margin-bottom: 1rem;
+}
+
+.button {
+  display: block;
+  padding: 0 1.5rem;
+  height: 3rem;
+  appearance: none;
+  font: inherit;
+  background: var(--text-color);
+  color: var(--background-color);
+  border: 1px solid var(--text-color);
+  border-radius: 4px;
+  min-width: 12.5rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  transition-property: color, background;
+  outline: none;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--text-color);
+    background: var(--background-color);
+  }
+}
+
+.icon-button {
+  font-size: 1.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.2s ease-in-out;
+
+  &:hover,
+  &:focus-visible,
+  .icon-button-input:focus-visible + & {
+    background: var(--icon-button-hover-background);
+  }
+}
+
+.advanced-options {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  width: 100%;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+}
+
+.advanced-options-content {
+  width: 100%;
+  max-width: 25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 2rem;
+  align-items: center;
+  justify-items: flex-end;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.input-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.25rem;
+  white-space: nowrap;
+  width: 100%;
+  height: 1.875rem;
+}
+
+.input {
+  width: 100%;
+  background: var(--input-background);
+  border: 1px solid var(--input-border);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font: inherit;
+  transition: 0.2s ease-in-out;
+  transition-property: border-color, box-shadow;
+  outline: 0;
+  box-shadow: 0 0 0 0px var(--input-border-focus);
+  color: inherit;
+
+  &:hover {
+    border-color: var(--input-border-hover);
+  }
+
+  &:focus-visible {
+    border-color: var(--input-border-focus);
+    box-shadow: 0 0 0 1px var(--input-border-focus);
+  }
+}
+
+.checkbox {
+  margin: 0;
+  accent-color: var(--checkbox-background);
+}
+
+.header {
+  font-size: 1.25rem;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer {
+  text-align: center;
+  color: var(--footer-color);
+  font-size: 0.8rem;
+
+  a {
+    color: inherit;
+    transition: color 0.1s ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--text-color);
+    }
+  }
+}

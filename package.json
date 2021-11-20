@@ -1,0 +1,14 @@
+{
+  "name": "losowehaslo.pl",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "postcss-nested": "^5.0.6",
+    "vite": "^2.6.4"
+  }
+}
