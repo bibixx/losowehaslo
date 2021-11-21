@@ -4,4 +4,4 @@ export const getNumberOfWordsValue = (value: number) => {
   }
 
   return value;
-}
+};

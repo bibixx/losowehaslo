@@ -1,1 +1,1 @@
-export const getRandomSeed = () => Math.random() * 10000
+export const getRandomSeed = () => Math.random() * 10000;

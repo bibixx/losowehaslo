@@ -1,4 +1,5 @@
-import { Settings } from './types'
+import { hasOwnProperty } from './hasOwnProperty';
+import { Settings } from './types';
 
 const defaultSettings: Settings = {
   count: 3,
@@ -7,14 +8,11 @@ const defaultSettings: Settings = {
   addNumber: false,
   addSpecialCharacter: false,
   randomizeCase: false,
-}
+};
 
-function hasOwnProperty<X extends {}, Y extends PropertyKey>
-  (obj: X, prop: Y): obj is X & Record<Y, unknown> {
-  return obj.hasOwnProperty(prop)
-}
-
-const validateSettings = (potentialSettings: unknown): potentialSettings is Settings => {
+const validateSettings = (
+  potentialSettings: unknown,
+): potentialSettings is Settings => {
   if (typeof potentialSettings !== 'object' || potentialSettings === null) {
     return false;
   }
@@ -37,19 +35,25 @@ const validateSettings = (potentialSettings: unknown): potentialSettings is Sett
     typeof potentialSettings.addNumber === 'boolean' &&
     typeof potentialSettings.addSpecialCharacter === 'boolean' &&
     typeof potentialSettings.randomizeCase === 'boolean'
-  )
-}
+  );
+};
 
 export const loadSettings = (): Settings => {
   try {
-    const settings = JSON.parse(localStorage.getItem('settings'));
+    const unparsedSettings = localStorage.getItem('settings');
 
-    if (!validateSettings(settings)) {
-      return defaultSettings
+    if (unparsedSettings === null) {
+      return defaultSettings;
     }
 
-    return settings
+    const settings = JSON.parse(unparsedSettings);
+
+    if (!validateSettings(settings)) {
+      return defaultSettings;
+    }
+
+    return settings;
   } catch (error) {
-    return defaultSettings
+    return defaultSettings;
   }
-}
+};
