@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,19 +7,14 @@
     <title>Generator Losowych Haseł | losowehaslo.pl</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div class="wrapper">
       <header class="header"><a href="/">losowehaslo.pl</a></header>
       <div class="content">
         <span class="generated-password" id="password"></span>
-        <button id="regenerate" type="button" class="button regenerate-button">
-          Wygeneruj Nowe Hasło
-        </button>
+        <button id="regenerate" type="button" class="button regenerate-button">Wygeneruj Nowe Hasło</button>
         <div>
           <input
             id="advanced-options-checkbox"
@@ -28,9 +23,7 @@
             class="sr-only icon-button-input"
           />
           <label for="advanced-options-checkbox" class="icon-button">
-            <span id="advanced-options-button-sr" class="sr-only"
-              >Otwórz opcje zaawansowane</span
-            >
+            <span id="advanced-options-button-sr" class="sr-only">Otwórz opcje zaawansowane</span>
             <svg
               id="advanced-options-button-image"
               aria-hidden="true"
@@ -57,71 +50,27 @@
             </svg>
           </label>
         </div>
-        <div
-          class="advanced-options"
-          id="advanced-options-wrapper"
-          aria-hidden="true"
-        >
+        <div class="advanced-options" id="advanced-options-wrapper" aria-hidden="true">
           <div>
             <div id="advanced-options-content" class="advanced-options-content">
-              <label for="number-of-words" class="input-label"
-                >Liczba słów:</label
-              >
-              <input
-                type="number"
-                name="number-of-words"
-                id="number-of-words"
-                step="1"
-                min="2"
-                class="input"
-              />
+              <label for="number-of-words" class="input-label">Liczba słów:</label>
+              <input type="number" name="number-of-words" id="number-of-words" step="1" min="2" class="input" />
               <label for="delimiter" class="input-label">Separator:</label>
-              <input
-                type="text"
-                name="delimiter"
-                id="delimiter"
-                class="input"
-              />
-              <label for="use-diacritics" class="input-label"
-                >Używaj znaków diakrytycznych:</label
-              >
-              <input
-                type="checkbox"
-                name="use-diacritics"
-                id="use-diacritics"
-                class="checkbox"
-              />
+              <input type="text" name="delimiter" id="delimiter" class="input" />
+              <label for="use-diacritics" class="input-label">Używaj znaków diakrytycznych:</label>
+              <input type="checkbox" name="use-diacritics" id="use-diacritics" class="checkbox" />
               <label for="add-number" class="input-label">Dodaj liczbę:</label>
-              <input
-                type="checkbox"
-                name="add-number"
-                id="add-number"
-                class="checkbox"
-              />
-              <label for="add-special-character" class="input-label"
-                >Dodaj znak specjalny:</label
-              >
-              <input
-                type="checkbox"
-                name="add-special-character"
-                id="add-special-character"
-                class="checkbox"
-              />
-              <label for="randomize-case" class="input-label"
-                >Losuj wielkość liter:</label
-              >
-              <input
-                type="checkbox"
-                name="randomize-case"
-                id="randomize-case"
-                class="checkbox"
-              />
+              <input type="checkbox" name="add-number" id="add-number" class="checkbox" />
+              <label for="add-special-character" class="input-label">Dodaj znak specjalny:</label>
+              <input type="checkbox" name="add-special-character" id="add-special-character" class="checkbox" />
+              <label for="randomize-case" class="input-label">Losuj wielkość liter:</label>
+              <input type="checkbox" name="randomize-case" id="randomize-case" class="checkbox" />
             </div>
           </div>
         </div>
       </div>
       <footer class="footer">
-        Made by <a href="http://legiec.io/">@bibixx</a>
+        Made by <a href="https://legiec.io/">@bibixx</a>
         &bull;
         <a href="https://github.com/bibixx/losowehaslo">GitHub</a>
       </footer>
