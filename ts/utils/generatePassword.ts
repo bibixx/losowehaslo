@@ -1,26 +1,18 @@
-import { getRandomWords } from './getRandomWords';
-import { getSeededRandomNumberGenerator } from './getSeededRandomNumberGenerator';
-import { Settings } from './types';
+import { getRandomWords } from "./getRandomWords";
+import { getSeededRandomNumberGenerator } from "./getSeededRandomNumberGenerator";
+import { Settings } from "./types";
 
-const specialCharacters = '!@#$%^&*()_+';
+const specialCharacters = "!@#$%^&*()_+";
 
-export const generatePassword = (
-  wordsList: string[],
-  seed: number,
-  settings: Settings,
-) => {
+export const generatePassword = (wordsList: string[], seed: number, settings: Settings) => {
   const getRandomNumber = getSeededRandomNumberGenerator(seed);
 
-  const words = getRandomWords(
-    wordsList,
-    getRandomNumber,
-    settings.count,
-    settings.diacritics,
-  ).join(settings.delimiter);
+  const words = getRandomWords(wordsList, getRandomNumber, settings.count, settings.diacritics).join(
+    settings.delimiter,
+  );
 
   const suffixNumber = Math.floor(getRandomNumber() * 10);
-  const suffixSpecialChar =
-    specialCharacters[Math.floor(getRandomNumber() * specialCharacters.length)];
+  const suffixSpecialChar = specialCharacters[Math.floor(getRandomNumber() * specialCharacters.length)];
 
   let output = words;
 
@@ -37,7 +29,7 @@ export const generatePassword = (
   }
 
   return output
-    .split('')
+    .split("")
     .map((letter) => {
       if (getRandomNumber() < 0.25) {
         return letter.toLocaleUpperCase();
@@ -45,5 +37,5 @@ export const generatePassword = (
 
       return letter;
     })
-    .join('');
+    .join("");
 };

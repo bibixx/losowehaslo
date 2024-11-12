@@ -1,4 +1,4 @@
-import { removeDiacritics } from './removeDiacritics';
+import { removeDiacritics } from "./removeDiacritics";
 
 export const getRandomWords = (
   wordsList: string[],

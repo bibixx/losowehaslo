@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign, no-bitwise, no-multi-assign */
 export const getSeededRandomNumberGenerator = (seed: number) => {
   return () => {
     let t = (seed += 0x6d2b79f5);
